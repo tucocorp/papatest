@@ -1,4 +1,4 @@
-# spec/integration/stores_api_doc_spec.rb
+# spec/integration/stores_spec.rb
 require 'swagger_helper'
 
 describe 'Stores API', type: :request, swagger_doc: 'api/v1/swagger_doc.json' do

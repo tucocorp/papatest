@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,18 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_10_231920) do
+ActiveRecord::Schema.define(version: 2020_06_11_063617) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'stores', force: :cascade do |t|
-    t.string 'name'
-    t.text 'address'
-    t.string 'email', default: 'francisco.abalan@pjchile.com'
-    t.string 'phone'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.string "sku"
+    t.string "type"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products_stores", id: false, force: :cascade do |t|
+    t.bigint "store_id", null: false
+    t.bigint "product_id", null: false
+    t.index ["product_id", "store_id"], name: "index_products_stores_on_product_id_and_store_id"
+    t.index ["store_id", "product_id"], name: "index_products_stores_on_store_id_and_product_id"
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.string "name"
+    t.text "address"
+    t.string "email", default: "francisco.abalan@pjchile.com"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

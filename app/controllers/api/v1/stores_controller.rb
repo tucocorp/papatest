@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 include Response
 
 class Api::V1::StoresController < ApplicationController
