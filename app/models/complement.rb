@@ -1,0 +1,2 @@
+class Complement < Product
+end
