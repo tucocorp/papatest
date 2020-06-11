@@ -5,6 +5,115 @@
     "version": "v1"
   },
   "paths": {
+    "/api/v1/orders": {
+      "get": {
+        "summary": "Retrieves all orders.",
+        "tags": [
+          "Orders"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "orders found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a order.",
+        "tags": [
+          "Orders"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "order",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "products_ids": {
+                  "type": "string"
+                },
+                "store_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "sku",
+                "type",
+                "price"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Product created"
+          },
+          "422": {
+            "description": "Product creation failed for parameter missing"
+          }
+        }
+      }
+    },
+    "/api/v1/orders/{id}": {
+      "get": {
+        "summary": "Retrieves a order.",
+        "tags": [
+          "Orders"
+        ],
+        "description": "Retrieving a specific order by id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product found"
+          },
+          "404": {
+            "description": "Product not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a order.",
+        "tags": [
+          "Orders"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Destroy the order"
+          }
+        }
+      }
+    },
     "/api/v1/products": {
       "get": {
         "summary": "Retrieves all products.",
