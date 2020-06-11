@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 include Response
 
 class Api::V1::StoresController < ApplicationController
@@ -23,7 +24,7 @@ class Api::V1::StoresController < ApplicationController
       @store = Store.create!(store_params)
       json_response @store, :created
     rescue => e
-      json_response({error: e.message}, :unprocessable_entity)
+      json_response({ error: e.message }, :unprocessable_entity)
     end
   end
 
@@ -34,7 +35,7 @@ class Api::V1::StoresController < ApplicationController
       @store.update!(store_params)
       head :no_content
     rescue => e
-      json_response({error: e.message}, :unprocessable_entity)
+      json_response({ error: e.message }, :unprocessable_entity)
     end
   end
 
@@ -55,7 +56,7 @@ class Api::V1::StoresController < ApplicationController
       begin
         @store = Store.find(params[:id])
       rescue => e
-        json_response({error: e.message}, :not_found)
+        json_response({ error: e.message }, :not_found)
       end
     end
 
