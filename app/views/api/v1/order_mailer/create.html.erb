@@ -1,0 +1,24 @@
+<h1>Nuevo Pedido</h1>
+
+<h3>Detalle</h3>
+
+<b>Tienda: </b> <%= @order.store.name %>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>SKU</th>
+    <th>Tipo</th>
+    <th>Precio</th>
+  </tr>
+  <% @order.products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.sku %></td>
+      <td><%= product.type %></td>
+      <td><%= number_to_currency(product.price, precision: 0) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h3><b>TOTAL: <%= number_to_currency(@order.total, precision: 0) %></b></h3>
