@@ -1,0 +1,124 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API documentation",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/stores": {
+      "get": {
+        "summary": "Retrieves all stores.",
+        "tags": [
+          "Stores"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "stores found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a store.",
+        "tags": [
+          "Stores"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "store",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "phone": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "email",
+                "address",
+                "phone"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Store created"
+          },
+          "422": {
+            "description": "Store creation failed for parameter missing"
+          }
+        }
+      }
+    },
+    "/api/v1/stores/{id}": {
+      "get": {
+        "summary": "Retrieves a store.",
+        "tags": [
+          "Stores"
+        ],
+        "description": "Retrieving a specific store by id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Store found"
+          },
+          "404": {
+            "description": "Store not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a store.",
+        "tags": [
+          "Stores"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Destroy the store"
+          }
+        }
+      }
+    }
+  }
+}
