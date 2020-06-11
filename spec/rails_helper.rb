@@ -74,7 +74,6 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
-  class ActiveModel::SecurePassword::InstanceMethodsOnActivation; end;
 
   # start by truncating all the tables but then use the faster transaction strategy the rest of the time.
   config.before(:suite) do
@@ -88,4 +87,9 @@ RSpec.configure do |config|
      example.run
    end
   end
+end
+
+# Parse JSON response
+def json
+  JSON.parse(response.body)
 end
