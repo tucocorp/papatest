@@ -12,6 +12,6 @@ RSpec.describe Store, type: :model do
   it { should validate_presence_of(:phone) }
 
   it "if email is blank, seting up a default email" do
-  	expect(Store.create.email).to eq('francisco.abalan@pjchile.com')
+    expect(Store.create.email).to eq('francisco.abalan@pjchile.com')
   end
 end
