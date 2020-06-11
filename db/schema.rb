@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -13,15 +14,15 @@
 ActiveRecord::Schema.define(version: 2020_06_10_231920) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "stores", force: :cascade do |t|
-    t.string "name"
-    t.text "address"
-    t.string "email", default: "francisco.abalan@pjchile.com"
-    t.string "phone"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'stores', force: :cascade do |t|
+    t.string 'name'
+    t.text 'address'
+    t.string 'email', default: 'francisco.abalan@pjchile.com'
+    t.string 'phone'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
 end
