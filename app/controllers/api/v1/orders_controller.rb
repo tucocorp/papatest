@@ -18,6 +18,7 @@ class Api::V1::OrdersController < ApplicationController
     ActiveRecord::Base.transaction do
       begin
         @order = Order.create!(order_params)
+        Api::V1::OrderMailer.create(@order).deliver_now
         json_response(@order.as_json(methods: [:total, :products]), :created)
       rescue => e
         json_response({error: e.message}, :unprocessable_entity)
