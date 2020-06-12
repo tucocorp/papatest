@@ -5,7 +5,7 @@ require 'capistrano-db-tasks'
 
 #FIXME add your app name here
 set :application, 'your-app'
-set :repo_url, 'git@github.com:tucocorp/papatest.git'
+set :repo_url, 'https://github.com/tucocorp/papatest.git'
 set :deploy_to, '/home/deploy/aws_rails'
 set :branch, ENV['BRANCH'] if ENV['BRANCH']
 
