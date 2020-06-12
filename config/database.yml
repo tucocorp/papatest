@@ -13,6 +13,8 @@ test:
 
 production:
   <<: *default
-  database: papatest_production
-  username: deploy
-  password: Rails.application.credentials.dig(:production, :db_password)
+  database: <%= ENV['RDS_DATABASE'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOST'] %>
+  post: 5432
