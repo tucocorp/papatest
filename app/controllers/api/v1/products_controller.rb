@@ -72,7 +72,7 @@ class Api::V1::ProductsController < ApplicationController
   end
 
   def product_params
-    params.permit(:name, :sku, :type, :price)
+    params.permit(:name, :sku, :type, :price, store_ids: [])
   end
 
 end

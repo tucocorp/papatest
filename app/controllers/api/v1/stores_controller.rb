@@ -54,6 +54,6 @@ class Api::V1::StoresController < ApplicationController
   end
 
   def store_params
-    params.permit(:name, :email, :address, :phone)
+    params.permit(:name, :email, :address, :phone, product_ids: [])
   end
 end
