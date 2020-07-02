@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails'
@@ -11,6 +12,7 @@ require 'action_controller/railtie'
 require 'action_mailer/railtie'
 require 'action_view/railtie'
 require 'action_cable/engine'
+require 'apartment/elevators/subdomain'
 # require 'sprockets/railtie'
 # require 'rails/test_unit/railtie'
 
@@ -25,5 +27,7 @@ module Papatest
     config.i18n.default_locale = :en
     config.swagger_dry_run = false
     config.api_only = true
+    # Apartament subdomain
+    #  config.middleware.use Apartment::Elevators::Subdomain
   end
 end
