@@ -17,13 +17,13 @@ resource "aws_elastic_beanstalk_environment" "production" {
   setting {
     namespace = "aws:elbv2:listener:80"
     name      = "Protocol"
-    value     = "HTTP"
+    value     = "TCP"
   }
 
   setting {
     namespace = "aws:elasticbeanstalk:environment"
     name      = "LoadBalancerType"
-    value     = "application"
+    value     = "network"
   }
 
   setting {
